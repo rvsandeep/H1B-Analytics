@@ -1,5 +1,7 @@
 
-COL_NAME_MAPPING = {'CASE_STATUS' : 'status'}
+COL_NAME_MAPPING = {'STATUS' : 'CASE_STATUS',
+                    'LCA_CASE_WORKLOC1_STATE' : 'WORKSITE_STATE',
+                    'LCA_CASE_SOC_NAME' : 'SOC_NAME'}
 
 def standardize_col_names(raw_data):
     return raw_data.rename(columns = COL_NAME_MAPPING)
