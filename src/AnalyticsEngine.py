@@ -16,11 +16,9 @@ def top10_stats(feature):
 def get_occupation_stats(data):
     results = top10_stats(data.occupation)
     col_names = ['TOP_OCCUPATION','NUMBER_CERTIFIED_APPLICATIONS','PERCENTAGE' ]
-    results.insert(0, col_names)
-    return results
+    return pd.DataFrame(results, columns= col_names)
 
 def get_state_stats(data):
     results = top10_stats(data.worksite_state)
     col_names = ['TOP_STATES','NUMBER_CERTIFIED_APPLICATIONS','PERCENTAGE' ]
-    results.insert(0, col_names)
-    return results
+    return pd.DataFrame(results, columns= col_names)
