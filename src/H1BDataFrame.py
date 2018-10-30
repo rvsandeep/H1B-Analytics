@@ -44,6 +44,11 @@ class DataFrame:
                 self.columns[item] = idx
         return None
 
+    def get_header(self):
+        if self.header is False:
+            return None
+        return sorted(self.columns, key=lambda k: self.columns[k])
+
     def rename_columns(self, columns = None, inplace=False):
         if inplace :
             new_frame = self
@@ -55,6 +60,7 @@ class DataFrame:
             if idx is not None:
                 new_name = columns[current_name]
                 new_frame.columns[new_name] = idx
+
         return new_frame
 
     def filter(self, colname, colvalue):
@@ -67,7 +73,7 @@ class DataFrame:
                 result.append(ridx)
         return DataFrame([self.data[idx] for idx in result], self.columns)
 
-    def unique_column_values(self, colname, return_counts=False):
+    def unique_column_values(self, colname, return_counts=False, ignore_na = False):
         cidx = self.columns.get(colname, None)
         if cidx is None:
             print('No Such Column Error')
@@ -76,13 +82,15 @@ class DataFrame:
             return list(set(col_values))
         freq = {}
         for val in col_values:
+            if ignore_na and len(val) == 0:
+                continue
             count = freq.get(val, 0)
             count += 1
             freq[val] = count
         return (list(freq.keys()), list(freq.values()))
 
     def __str__(self):
-        columns = list(self.columns.keys())
+        columns = self.get_header()
         res = [columns]
         res.extend(self.data[:HEAD])
         return str(res)
