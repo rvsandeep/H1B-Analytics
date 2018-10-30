@@ -52,9 +52,9 @@ The directory structure for the repo is of following format :
 
 #### Code Pipeline
 
-1.  **Data Handling** : `H1BDataFrame` hosts methods for reading csv files, accessing data and performing generic operations on the dataframe, similar to `pandas`.
-2. **Data Pre-Processing** : `DataTransformer` currently hosts methods for renaming the raw input column names to a generic convention. Currently, the latest file structure is used as a standard. The files dated `2009` and before have different naming convention, hence the required mapping to transform from old convention to the latest is included as json files under `src/resources`.
-3. **Analytics** : `AnalyticsEngine` hosts methods for performing basic analysis on the dataset, such as calculating the `top 10 statistics`. 
+1.  **`Data Handling`** : `H1BDataFrame` hosts methods for reading csv files, accessing data and performing generic operations on the dataframe, similar to `pandas`.
+2. **`Data Pre-Processing`** : `DataTransformer` currently hosts methods for renaming the raw input column names to a generic convention. Currently, the latest file structure is used as a standard. The files dated `2009` and before have different naming convention, hence the required mapping to transform from old convention to the latest is included as json files under `src/resources`.
+3. **`Analytics`** : `AnalyticsEngine` hosts methods for performing basic analysis on the dataset, such as calculating the `top 10 statistics`. 
 
 # Run Instructions
 
