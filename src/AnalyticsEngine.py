@@ -3,6 +3,7 @@ from H1BDataFrame import DataFrame
 
 def top_values(H1BData, feature):
     feature, counts = H1BData.unique_column_values(feature, return_counts=True, ignore_na=True)
+    #sort based on frequency in descending and then alphabetically 
     sorted_ = sorted( zip(feature,counts), key=lambda val:(-val[1], val[0]))
     unzipped_ = list(zip(*sorted_))
     return list(unzipped_[0]), list(unzipped_[1])
