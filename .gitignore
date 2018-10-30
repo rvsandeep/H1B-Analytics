@@ -1,1 +1,12 @@
 input/
+output/
+insight_testsuite/
+
+ENV/
+
+__pycache__
+*/__pycache__
+
+*/.ipynb_checkpoints
+
+src/*.ipynb

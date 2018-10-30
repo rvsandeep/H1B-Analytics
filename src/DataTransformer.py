@@ -1,6 +1,7 @@
 import json
 import os
-RESOURCE_DIR = './resources/'
+RESOURCE_DIR = 'src/resources/'
+
 def standardize_col_names(raw_data):
     fileformats = os.listdir(RESOURCE_DIR)
     standard_mapping = {}
