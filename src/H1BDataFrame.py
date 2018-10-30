@@ -67,7 +67,7 @@ class DataFrame:
                 result.append(ridx)
         return DataFrame([self.data[idx] for idx in result], self.columns)
 
-    def unique_column_values(self, colname, return_counts=False):
+    def unique_column_values(self, colname, return_counts=False, ignore_na = False):
         cidx = self.columns.get(colname, None)
         if cidx is None:
             print('No Such Column Error')
@@ -76,6 +76,8 @@ class DataFrame:
             return list(set(col_values))
         freq = {}
         for val in col_values:
+            if ignore_na and len(val) == 0:
+                continue
             count = freq.get(val, 0)
             count += 1
             freq[val] = count
